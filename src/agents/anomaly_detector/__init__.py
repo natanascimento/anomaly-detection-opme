@@ -8,10 +8,3 @@ class AnomalyDetectorAgent(Agent):
             backstory='Especialista em encontrar inconsistências e valores fora do padrão.',
             verbose=True,
         )
-
-    def run(self, items):
-        anomalias = []
-        for item in items:
-            if 'kit' in item.lower() or '9999' in item:
-                anomalias.append(item)
-        return {'anomalies': anomalias}
