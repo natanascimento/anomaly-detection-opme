@@ -37,16 +37,41 @@ def create_tasks(pdf_path):
     )
 
     anomaly_task = Task(
-        description="Verificar a lista de produtos e identificar anomalias ou inconsistências.",
-        expected_output="Lista de produtos com potenciais anomalias identificadas.",
+        description=(
+            "Analisar a lista de produtos normalizados da nota fiscal para identificar anomalias como: "
+            "preços abusivos ou acima da média de mercado, variações injustificadas entre itens similares, "
+            "quantidades incompatíveis com a prática hospitalar, subclassificações conflitantes, ou descrições que não condizem com a categoria. "
+            "Utilizar referências como bases históricas, tabelas públicas (ex: BPS/ANVISA), regras regulatórias e lógica clínica para embasar os achados. "
+            "Priorizar a detecção de padrões suspeitos que possam indicar sobrepreço, erros sistemáticos ou inconformidades críticas."
+        ),
+        expected_output=(
+            "Lista estruturada de produtos com potenciais anomalias, contendo para cada item:\n"
+            "- ID do produto;\n"
+            "- Tipo(s) de anomalia(s) detectada(s) (ex: preço abusivo, quantidade atípica, classificação inconsistente);\n"
+            "- Justificativa ou evidência (ex: comparação com preço de referência);\n"
+            "- Grau de severidade (leve, moderado, crítico);\n"
+            "- Sugestão de ação (ex: revisar com fornecedor, reclassificar, encaminhar para auditoria especializada)."
+        ),
         agent=anomaly_detector_agent,
         context=[normalizer_task],
         async_execution=True
     )
 
     summary_task = Task(
-        description="Crie um resumo consolidado do processo de análise da nota fiscal, incluindo os produtos extraídos, os nomes normalizados, suas classificações e quaisquer anomalias detectadas.",
-        expected_output="Resumo textual amigável contendo todos os dados relevantes do processo para exibição ao usuário.",
+        description=(
+            "Gerar um resumo consolidado e estruturado de toda a análise realizada sobre a nota fiscal. "
+            "O resumo deve incluir: (1) os produtos extraídos, (2) os nomes após normalização, (3) a classificação de cada item "
+            "(como OPME, Medicamento ou Consumo), (4) quaisquer anomalias ou inconsistências detectadas e (5) correções ou ajustes sugeridos. "
+            "Apresente os dados de forma clara, ordenada e amigável ao usuário, destacando os pontos críticos e possíveis ações recomendadas."
+        ),
+        expected_output=(
+            "Resumo textual estruturado com seções bem definidas, incluindo: \n"
+            "- Lista dos produtos processados com nome normalizado, classificação e status de conformidade;\n"
+            "- Anomalias detectadas por produto (com descrição breve e impacto potencial);\n"
+            "- Correções realizadas ou sugeridas (ex: ajustes de nomenclatura);\n"
+            "- Observações gerais e recomendações finais para o usuário.\n"
+            "O conteúdo deve ser direto, legível e pronto para visualização em interface ou relatório final."
+        ),
         agent=summary_agent,
         context=[invoice_reader_task, normalizer_task, classifier_task, anomaly_task]
     )
