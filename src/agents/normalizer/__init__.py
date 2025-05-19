@@ -3,15 +3,18 @@ from crewai import Agent
 class NormalizerAgent(Agent):
     def __init__(self):
         super().__init__(
-            role='Normalizer Agent',
-            goal='Padronizar nomes de produtos com base em nomenclaturas esperadas',
-            backstory='Conhece as principais variações nos nomes de produtos médicos.',
+            role='Product Name Normalizer Agent',
+            goal=(
+                'Identificar e padronizar nomes de produtos médicos e hospitalares, corrigindo variações, '
+                'abreviações, erros ortográficos e descrições inconsistentes, com base em nomenclaturas oficiais '
+                'e listas padronizadas (como ANVISA, BPS/SUS ou catálogos institucionais).'
+            ),
+            backstory=(
+                'Agente especializado na normalização de descrições de produtos da saúde. Possui conhecimento '
+                'profundo sobre padrões terminológicos utilizados por hospitais, fornecedores, órgãos reguladores '
+                'e operadoras. É capaz de detectar sinônimos, erros comuns, e variações não padronizadas para '
+                'converter descrições livres em nomes padronizados e semanticamente corretos. '
+                'Isso garante consistência, melhor classificação e rastreabilidade dos itens em sistemas downstream.'
+            ),
             verbose=True,
         )
-
-    def run(self, items):
-        normalized = []
-        for item in items:
-            norm_item = item.replace("Titânio", "Titânio").replace("4mm", "Ø4mm")
-            normalized.append(norm_item)
-        return {'normalized': normalized}
