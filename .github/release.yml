@@ -1,11 +1,16 @@
+template: |
+  ## 📝 Changes
+
+  $CHANGES
+
 changelog:
   categories:
-    - title: 🏕 Features
+    - title: "🏕 Features"
       labels:
-        - '*'
+        - "*"
       exclude:
         labels:
-          - dependencies
-    - title: 👒 Dependencies
+          - "dependencies"
+    - title: "👒 Dependencies"
       labels:
-        - dependencies
+        - "dependencies"

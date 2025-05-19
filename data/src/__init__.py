@@ -6,18 +6,14 @@ from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 def gerar_pdf_de_produtos(json_path, output_pdf):
-    # Carrega os dados do JSON
     with open(json_path, "r", encoding="utf-8") as f:
         produtos = json.load(f)
 
-    # Cria o documento PDF
     doc = SimpleDocTemplate(output_pdf, pagesize=A4)
     elementos = []
 
-    # Cabeçalhos da tabela
     dados = [["Código", "Produto", "Valor Unitário (R$)"]]
 
-    # Adiciona os dados
     for item in produtos:
         dados.append([
             item["codigo"],
@@ -25,10 +21,8 @@ def gerar_pdf_de_produtos(json_path, output_pdf):
             f"{item["valor_unitario"]:.2f}"
         ])
 
-    # Cria a tabela
     tabela = Table(dados, colWidths=[80, 300, 120])
 
-    # Estilo da tabela
     estilo = TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
         ("TEXTCOLOR", (0, 0), (-1, 0), colors.black),
