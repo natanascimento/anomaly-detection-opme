@@ -22,15 +22,15 @@ def create_tasks(pdf_path):
     )
 
     normalizer_task = Task(
-        description="Padronizar a nomenclatura dos itens extraídos da nota fiscal.",
-        expected_output="Lista de itens com nomes padronizados.",
+        description="Identificar nomenclaturas incorretas e padronizar a nomenclatura dos itens extraídos da nota fiscal.",
+        expected_output="Lista de itens com nomes errado e ao lado os nomes padronizados.",
         agent=normalizer_agent,
         context=[invoice_reader_task]
     )
 
     classifier_task = Task(
         description="Classificar os itens como OPME, Medicamento ou Material de Consumo.",
-        expected_output="Lista de itens classificados por categoria.",
+        expected_output="Lista de itens classificados por categoria definidas.",
         agent=classifier_agent,
         context=[normalizer_task],
         async_execution=True
@@ -76,7 +76,7 @@ def run_crew(pdf_path):
 if __name__ == "__main__":
     start = datetime.now()
 
-    print(run_crew(pdf_path=path.join(settings.app.DATA_PATH, "sample_invoice.pdf")))
+    print(run_crew(pdf_path=path.join(settings.app.DATA_PATH, "hospital_nf_mock.pdf")))
     
     end = datetime.now()
     print("Elapsed Time: ", end - start)
