@@ -1,0 +1,28 @@
+[
+    {"codigo": "10001", "produto": "Parafuzo titânio 4mm", "valor_unitario": 180.00},
+    {"codigo": "10002", "produto": "Placa OSEA 12 FUROS", "valor_unitario": 720.00},
+    {"codigo": "10003", "produto": "Dipirona 500mg", "valor_unitario": 7.50},
+    {"codigo": "10004", "produto": "Kit cirg. completo", "valor_unitario": 2800.00},
+    {"codigo": "10005", "produto": "Gaze esterel 7,5x7,5", "valor_unitario": 11.00},
+    {"codigo": "10006", "produto": "Stent coronario farmac.", "valor_unitario": 1500.00},
+    {"codigo": "10007", "produto": "Siringa 5ml c/ agul.", "valor_unitario": 1.70},
+    {"codigo": "10008", "produto": "Luva desc. tam M", "valor_unitario": 1.20},
+    {"codigo": "10009", "produto": "Parafuso cortical 3,5mm", "valor_unitario": 165.00},
+    {"codigo": "10010", "produto": "Agulha peridural 17G", "valor_unitario": 12.00},
+    {"codigo": "10011", "produto": "Cateter Foley 2 vias", "valor_unitario": 18.00},
+    {"codigo": "10012", "produto": "Fita Micropore 1.2cm", "valor_unitario": 3.00},
+    {"codigo": "10013", "produto": "Kit Cx. artroscopia", "valor_unitario": 2850.00},
+    {"codigo": "10014", "produto": "Dipirona monohidratada 1g", "valor_unitario": 9.00},
+    {"codigo": "10015", "produto": "PLACA RECONSTRUÇÃO 10 FUROS", "valor_unitario": 950.00},
+    {"codigo": "10016", "produto": "Estente ureteral 6Fr", "valor_unitario": 215.00},
+    {"codigo": "10017", "produto": "Dren cirurgico 2 vias", "valor_unitario": 37.00},
+    {"codigo": "10018", "produto": "Compressa gaz. estéril", "valor_unitario": 14.00},
+    {"codigo": "10019", "produto": "Sonda nasogastr. nº12", "valor_unitario": 5.00},
+    {"codigo": "10020", "produto": "Frasco coletor urina 1L", "valor_unitario": 3.90},
+    {"codigo": "10021", "produto": "Campo cirurgico fenestrado", "valor_unitario": 22.50},
+    {"codigo": "10022", "produto": "Cânula Yankauer", "valor_unitario": 8.20},
+    {"codigo": "10023", "produto": "Sutura nylon 4-0 45cm", "valor_unitario": 12.80},
+    {"codigo": "10024", "produto": "Luva latex cirg. estéril", "valor_unitario": 1.80},
+    {"codigo": "10025", "produto": "KIT CIRURGICO ortopédico compl.", "valor_unitario": 3100.00}
+  ]
+  
